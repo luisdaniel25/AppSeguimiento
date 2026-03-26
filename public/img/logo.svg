@@ -1,0 +1,32 @@
+<svg width="100%" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Escudo/Ícono institucional -->
+  <!-- Base del escudo -->
+  <path d="M120 40 L160 40 L172 50 L172 130 Q172 160 140 175 Q108 160 108 130 L108 50 Z" fill="#39A900" stroke="#2d8200" stroke-width="1.5" style="fill:rgb(57, 169, 0);stroke:rgb(45, 130, 0);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Franja diagonal decorativa -->
+  <path d="M108 90 L172 70 L172 90 L108 110 Z" fill="#ffffff" opacity="0.25" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Símbolo central: libro abierto -->
+  <path d="M127 105 Q140 98 140 98 Q140 98 153 105 L153 138 Q140 132 140 132 Q140 132 127 138 Z" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" style="fill:none;stroke:rgb(255, 255, 255);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="140" y1="98" x2="140" y2="132" stroke="#ffffff" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(255, 255, 255);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Estrella institucional arriba -->
+  <polygon points="140,52 143,61 153,61 145,67 148,76 140,70 132,76 135,67 127,61 137,61" fill="#ffffff" opacity="0.9" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Línea divisoria vertical -->
+  <line x1="195" y1="38" x2="195" y2="182" stroke="#39A900" stroke-width="1.5" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(57, 169, 0);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Nombre principal -->
+  <text x="212" y="92" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#39A900" letter-spacing="-0.5" style="fill:rgb(57, 169, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:38px;font-weight:700;text-anchor:start;dominant-baseline:auto">Seguimiento</text>
+  <text x="212" y="138" font-family="Georgia, serif" font-size="38" font-weight="400" fill="#2d6e00" letter-spacing="-0.5" style="fill:rgb(45, 110, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:38px;font-weight:400;text-anchor:start;dominant-baseline:auto">Productivo</text>
+
+  <!-- Línea decorativa bajo el nombre -->
+  <rect x="212" y="150" width="340" height="2.5" rx="1" fill="#39A900" opacity="0.6" style="fill:rgb(57, 169, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="212" y="155" width="200" height="1" rx="1" fill="#39A900" opacity="0.25" style="fill:rgb(57, 169, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Subtítulo institucional -->
+  <text x="212" y="178" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#39A900" letter-spacing="3" opacity="0.75" style="fill:rgb(57, 169, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.75;font-family:Arial, sans-serif;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">SENA · SISTEMA DE SEGUIMIENTO A APRENDICES</text>
+</svg>
