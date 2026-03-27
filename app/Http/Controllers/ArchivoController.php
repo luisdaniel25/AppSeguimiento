@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreArchivoRequest;
+use App\Http\Requests\Archivo\StoreArchivoRequest;
 use App\Models\Archivo;
 use App\Services\ArchivoService;
 use Illuminate\Support\Facades\Auth;

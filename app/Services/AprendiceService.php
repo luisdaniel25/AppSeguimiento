@@ -28,7 +28,7 @@ class AprendiceService
     /**
      * Retorna los datos necesarios para los selects del formulario.
      */
-    public function editar(): array
+    public function datosdelformulario(): array
     {
         return [
             'centros' => Centrodeformacion::all(),

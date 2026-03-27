@@ -2,104 +2,95 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Centrodeformacion;
-use App\Models\Regionale;
-use Illuminate\Http\Request;
+use App\Http\Requests\CentroFormacion\StoreCentroFormacionRequest;
+use App\Http\Requests\CentroFormacion\UpdateCentroFormacionRequest;
+use App\Services\CentroDeFormacionService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Throwable;
 
 class CentrodeformacionController extends Controller
 {
-    /**
-     * LISTADO
-     */
-    public function index()
+    public function __construct(protected CentroDeFormacionService $service)
     {
-        $centros = Centrodeformacion::with('regionale')
-            ->orderBy('NIS')
-            ->paginate(10);
-
-        return view('Centros.index', compact('centros'));
     }
 
-    /**
-     * FORM CREAR
-     */
-    public function create()
+    public function index(): View
     {
-        $regionales = Regionale::all();
+        $centros = $this->service->listar();
 
-        return view('Centros.create', compact('regionales'));
+        return view('centros.index', compact('centros'));
     }
 
-    /**
-     * GUARDAR
-     */
-    public function store(Request $request)
+    public function create(): View
     {
-        $data = $request->validate([
-            'Codigo' => 'required|integer',
-            'Denominacion' => 'required|string|max:100',
-            'Direccion' => 'required|string|max:200',
-            'Observaciones' => 'nullable|string|max:200',
-            'tbl_regionales_NIS' => 'required|integer|exists:tbl_regionales,NIS',
-        ]);
+        $regionales = $this->service->datosDelFormulario()['regionales'];
 
-        Centrodeformacion::create($data);
-
-        return redirect()
-            ->route('centros.index')
-            ->with('success', 'Centro creado correctamente');
+        return view('centros.create', compact('regionales'));
     }
 
-    /**
-     * VER DETALLE
-     */
-    public function show(Centrodeformacion $centro)
+    public function store(StoreCentroFormacionRequest $request): RedirectResponse
     {
-        $centro->load('regionale');
+        try {
+            $this->service->crear($request->validated());
 
-        return view('Centros.show', compact('centro'));
+            return redirect()->route('centros.index')
+                ->with('success', 'Centro creado correctamente.');
+
+        } catch (Throwable $e) {
+            report($e);
+
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'No se pudo crear el centro. Intente nuevamente.');
+        }
     }
 
-    /**
-     * FORM EDITAR
-     */
-    public function edit(Centrodeformacion $centro)
+    public function show(Centrodeformacion $centro): View
     {
-        $regionales = Regionale::all();
+        $centro = $this->service->verDetalles($centro);
+
+        return view('centros.show', compact('centro'));
+    }
+
+    public function edit(Centrodeformacion $centro): View
+    {
+        $regionales = $this->service->datosDelFormulario()['regionales'];
 
         return view('centros.edit', compact('centro', 'regionales'));
     }
 
-    /**
-     * ACTUALIZAR
-     */
-    public function update(Request $request, Centrodeformacion $centro)
+    public function update(UpdateCentroFormacionRequest $request, Centrodeformacion $centro): RedirectResponse
     {
-        $data = $request->validate([
-            'Codigo' => 'required|integer',
-            'Denominacion' => 'required|string|max:100',
-            'Direccion' => 'required|string|max:200',
-            'Observaciones' => 'nullable|string|max:200',
-            'tbl_regionales_NIS' => 'required|integer|exists:tbl_regionales,NIS',
-        ]);
+        try {
+            $this->service->actualizar($centro, $request->validated());
 
-        $centro->update($data);
+            return redirect()->route('centros.index')
+                ->with('success', 'Centro actualizado correctamente.');
 
-        return redirect()
-            ->route('centros.index')
-            ->with('success', 'Centro actualizado correctamente');
+        } catch (Throwable $e) {
+            report($e);
+
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'No se pudo actualizar el centro. Intente nuevamente.');
+        }
     }
 
-    /**
-     * ELIMINAR
-     */
-    public function destroy(Centrodeformacion $centro)
+    public function destroy(Centrodeformacion $centro): RedirectResponse
     {
-        $centro->delete();
+        try {
+            $this->service->eliminar($centro);
 
-        return redirect()
-            ->route('centros.index')
-            ->with('success', 'Centro eliminado correctamente');
+            return redirect()->route('centros.index')
+                ->with('success', 'Centro eliminado correctamente.');
+
+        } catch (Throwable $e) {
+            report($e);
+
+            return redirect()->back()
+                ->with('error', 'No se pudo eliminar el centro. Es posible que tenga aprendices asociados.');
+        }
     }
 }

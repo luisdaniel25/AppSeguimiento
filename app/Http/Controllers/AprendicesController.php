@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAprendiceRequest;
-use App\Http\Requests\UpdateAprendiceRequest;
+
+
+use App\Http\Requests\Aprendiz\StoreAprendiceRequest;
+use App\Http\Requests\Aprendiz\UpdateAprendiceRequest;
 use App\Models\Aprendice;
 use App\Services\AprendiceService;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,8 +30,7 @@ class AprendicesController extends Controller
     public function create()
     {
         // Obtiene datos auxiliares para los selectores del formulario (fichas, programas, etc.)
-        $datos = $this->service->datosFormulario();
-
+        $datos = $this->service->datosdelformulario();
         // $datos es un array asociativo, se expande como variables individuales en la vista
         return view('Aprendices.create', $datos);
     }
@@ -58,7 +59,7 @@ class AprendicesController extends Controller
     public function edit(Aprendice $aprendice)
     {
         // Obtiene los datos auxiliares del formulario (mismos selectores que en create)
-        $datos = $this->service->editar();
+        $datos = $this->service->datosdelformulario();
 
         // array_merge une el aprendiz actual con los datos del formulario
         // para pasarlos todos juntos a la vista en un solo array

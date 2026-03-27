@@ -39,6 +39,7 @@ class Centrodeformacion extends Model
         );
     }
 
+
     // Centro tiene muchos aprendices
     public function aprendices()
     {

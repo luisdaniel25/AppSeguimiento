@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('adminlte::auth.verify', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Seguimiento\resources\views\auth\verify.blade.php ENDPATH**/ ?>
